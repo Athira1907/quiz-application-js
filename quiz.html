@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+       body{
+        background-color:aliceblue;
+       }
+       .text{
+        color: blue;
+        text-align: center;
+       }
+       #question{
+        text-align: center;
+       }
+       .content{
+        border: 1px solid;
+        border-radius:30px ;
+        width: 480px;
+        height: 380px;
+        box-shadow: 10px grey;
+      background-color: #fff;
+       margin-top: 60px;
+       margin-left: 290px;
+       } 
+       .header{
+       padding:auto;
+       }
+        #list{
+            padding: 90px;
+        }
+        .input{
+            cursor: pointer;
+        }
+        #btn{
+           display: block;
+            background-color: deepskyblue;
+            color: aliceblue;
+            font-size: 20px;
+           border: rgb(248, 246, 246);
+        margin-top: -10px;
+         width: 100%;
+         height: 53px;
+        border-radius:0px,0px, 20px,20px; 
+            cursor: pointer;
+            
+         
+        }
+        #btn:hover{
+            background-color: rgb(64, 122, 180);
+        }
+        #btn:focus{
+            background-color: green;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <h1 class="text">Quiz App</h1>
+  <div class="content">
+        <div class="header">
+            <h3 id="question"></h3>
+            <ol type="a" id="list">
+                <li> <input type="radio" id="1_text" class="input" name="answer">
+                    <label for="1_text" id="a">a</label></li>
+                <li> <input type="radio" id="2_text" class="input"name="answer">
+                    <label for="2_text" id="b">b</label></li> 
+                <li><input type="radio" id="3_text" class="input"name="answer">
+                    <label for="3_text" id="c">c</label></li> 
+                <li><input type="radio" id="4_text" class="input"name="answer">
+                    <label for="4_text" id="d">d</label></li> 
+                   
+            </ol>
+            
+        </div>
+        <button type="submit" id="btn" onclick="start()">Submit</button>
+    </div>
+    <div id="result">
+
+    </div>
+</body>
+<script>
+   
+   let quizdata=[
+    {
+            question:"1.What is HTML?",
+            a:"Hyper Text Markup Language",
+            b:"High Text Markup Language",
+            c:"Hyper Text Making Language",
+            d:"None of these",
+            correct_answer:"a"
+        },
+        
+        {
+            question:"which programming language runs in a web browser",
+            a:"java",
+            b:"c",
+            c:"javascript",
+            d:"c#",
+            correct_answer:"c" 
+        },
+        {
+            question:"which stands for CSS",
+            a:"contact style sheet",
+            b:"cascading style sheet",
+            c:"content spread sheet",
+            d:"none of these",
+            correct_answer:"b"
+        },
+        {
+            question:"which year does the javascript launched",
+            a:"1999",
+            b:"1990",
+            c:"1876",
+            d:"1995",
+            correct_answer:"d"
+        },
+        {
+            question:"Does js is used for front end technology",
+            a:"yes",
+            b:"no",
+            correct_answer:"a"
+        }
+    ]
+    console.log(quizdata);
+    
+
+   // let container=document.getElementById('quiz')
+    let quiz=document.getElementById('question')
+    let opt1=document.getElementById('a')
+    let opt2=document.getElementById('b')
+    let opt3=document.getElementById('c')
+    let opt4=document.getElementById('d')
+   // let answer=document.getElementsByClassName('input')
+    let submitBtn=document.getElementById('btn')
+    var rightWay=currentQuizData.correct_answer
+    
+    function start(){
+        for(let data of quizdata){
+            quiz.innerText=quizdata.map((data)=>data[question]) //question display
+        //display options
+        opt1.innerText=data.a
+        opt2.innerText=data.b
+        opt3.innerText=data.c
+        opt4.innerText=data.d
+        submit()
+           
+    }
+       
+    }
+    
+    let score=0
+    let currentquiz=0
+    
+
+    function submit(){
+      data++
+       
+       deselected()
+       selected() 
+       reload() 
+    }
+    function selected(){
+ if(currentQuizData==rightWay)
+      {
+        score++
+       data++ //next question
+    }
+    }
+
+    function deselected(){
+if(currentQuizData!==rightWay){
+   data++ //next question
+}
+    }
+    function reload(){
+if(currentQuizData<quizdata.length){
+    
+    html_Data= `<h4>${currentQuiz} <br>
+        ${score}</h4>`
+}
+result.innerText+=html_Data
+    }
+
+   
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
